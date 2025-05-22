@@ -42,7 +42,7 @@
 | Módulo           | Detalle                                                                 |
 |------------------|-------------------------------------------------------------------------|
 | **Autenticación**| Registro/login con validación en base de datos.                        |
-| **Gameplay**     | 10 cartas interactivas, volteo con límite de 2 selecciones, feedback visual. |
+| **Gameplay**     | 5 cartas interactivas, volteo con límite de 2 selecciones, feedback visual. |
 | **Scoring**      | Sistema de puntos con bonificaciones por retos (cada 100 puntos).      |
 | **Ranking**      | Tabla de líderes con TOP 10 puntuaciones históricas.                   |
 | **Personalización**| Temas visuales y ajustes de dificultad.                              |
