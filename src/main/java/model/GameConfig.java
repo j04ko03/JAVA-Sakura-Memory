@@ -4,7 +4,6 @@ public class GameConfig {
     private String gameMode;
     private SettingsManager settings;
 
-    // Constructor privado para usar Builder
     private GameConfig(String gameMode, SettingsManager settings) {
         this.gameMode = gameMode;
         this.settings = settings;

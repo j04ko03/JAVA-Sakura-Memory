@@ -5,7 +5,6 @@ import main.java.model.*;
 import main.java.view.GameUI;
 
 import javax.swing.*;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SakuraMemoryGame {
@@ -73,8 +72,6 @@ public class SakuraMemoryGame {
 
         try {
             DatabaseConnector db = new DatabaseConnector();
-
-            // Verificar si el usuario ya existe
             boolean exists = db.executeQuery(
             "SELECT id_usuario FROM Usuarios WHERE nombre_usuario = ?",
             rs -> rs.next(),
@@ -109,7 +106,6 @@ public class SakuraMemoryGame {
             return false;
         }
     }
-
 
     public static void main(String[] args) {
         new SakuraMemoryGame();

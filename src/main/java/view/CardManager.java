@@ -49,8 +49,8 @@ public class CardManager {
         card.setMaximumSize(new java.awt.Dimension(CARD_WIDTH, CARD_HEIGHT));
         card.setMinimumSize(new java.awt.Dimension(CARD_WIDTH, CARD_HEIGHT));
         card.setSize(new java.awt.Dimension(CARD_WIDTH, CARD_HEIGHT));
-        card.setContentAreaFilled(false); // Si quieres el botón transparente donde no haya imagen
-        card.setBorderPainted(false);     // Oculta el borde para más "aspecto de carta"
+        card.setContentAreaFilled(false);
+        card.setBorderPainted(false);
         card.setFocusPainted(false);
 
         card.putClientProperty("frontIcon", frontIcon);
@@ -61,10 +61,8 @@ public class CardManager {
 
     private ImageIcon loadScaledIcon(String imageName, int width, int height) {
         try {
-            // Usa el loader que mira en "/images/"
             return main.java.utils.ImageLoader.loadIcon(imageName, width, height);
         } catch (main.java.exceptions.GameInitializationException ex) {
-            // Si quieres, puedes mostrar el error o poner una imagen por defecto aquí
             ex.printStackTrace();
             return null;
         }

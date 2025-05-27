@@ -2,10 +2,8 @@ package main.java.view;
 
 import main.java.model.*;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.Collections;
-import java.util.List;
+
 
 public class GameUI {
     private static final int CARD_PAIRS = 5;
