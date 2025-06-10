@@ -16,12 +16,12 @@ public class GamePanel extends JPanel {
     private JButton firstCard = null;
     private JButton secondCard = null;
     private boolean isProcessing = false;
-    private final Runnable exitAction; // <-- Añade esto
+    private final Runnable exitAction;
 
     public GamePanel(List<JButton> cards, GameMechanics mechanics, Runnable exitAction) {
         setLayout(new BorderLayout());
 
-        this.exitAction = exitAction; // <-- Guarda exitAction para usarlo donde quieras
+        this.exitAction = exitAction;
 
         // Timer
         timerLabel = new JLabel(String.valueOf(TIMER_SECONDS), SwingConstants.RIGHT);
@@ -82,7 +82,7 @@ public class GamePanel extends JPanel {
         try {
             ImageIcon icon = showFront
         ? (ImageIcon) card.getClientProperty("frontIcon")
-        : ImageLoader.loadIcon("Reverso.png", 100, 100);
+        : ImageLoader.loadIcon("Reverso.png", 100, 140);
     card.setIcon(icon);
         } catch (GameInitializationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -94,7 +94,7 @@ public class GamePanel extends JPanel {
         int id2 = (int) secondCard.getClientProperty("cardId");
 
         if (id1 == id2) {
-            mechanics.processMatch(id1); // Actualiza puntuación
+            mechanics.processMatch(id1);
             firstCard.setEnabled(false);
             secondCard.setEnabled(false);
 
@@ -110,7 +110,6 @@ public class GamePanel extends JPanel {
             if (allMatched) {
                 if (gameTimer != null) gameTimer.stop();
                 JOptionPane.showMessageDialog(this, "¡Has completado todas las parejas!");
-                // Llama a la acción de volver al menú/empezar juego
                 SwingUtilities.invokeLater(exitAction);
             }
         } else {

@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 
 public class GameUI {
     private static final int CARD_PAIRS = 5;
-    private static final int TIMER_SECONDS = 60;
 
     private final JFrame mainFrame;
     private final GameMechanics gameMechanics;

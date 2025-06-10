@@ -67,11 +67,4 @@ public class CardManager {
             return null;
         }
     }
-
-    private void flipCard(JButton card, boolean showFront) {
-        ImageIcon icon = showFront
-                ? (ImageIcon) card.getClientProperty("frontIcon")
-                : (ImageIcon) card.getClientProperty("backIcon");
-        card.setIcon(icon);
-    }
 }
