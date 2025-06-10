@@ -10,7 +10,7 @@ public class CardManager {
     private static final String CARD_IMAGE_PREFIX = "card";
     private static final String CARD_BACK_IMAGE = "Reverso.png";
     private static final int CARD_WIDTH = 100;
-    private static final int CARD_HEIGHT = 140; // Cambia este valor si tus cartas son más altas que anchas
+    private static final int CARD_HEIGHT = 145;
 
     private final SettingsManager settings;
 

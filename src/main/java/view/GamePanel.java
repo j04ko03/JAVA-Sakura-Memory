@@ -11,7 +11,7 @@ import java.util.List;
 
 public class GamePanel extends JPanel {
     private static final int TIMER_SECONDS = 60;
-    private JLabel timerLabel;
+    final JLabel timerLabel;
     private Timer gameTimer;
     private JButton firstCard = null;
     private JButton secondCard = null;
@@ -60,8 +60,8 @@ public class GamePanel extends JPanel {
     private void handleCardClick(ActionEvent e, GameMechanics mechanics) {
         if (isProcessing) return;
 
-        JButton clickedCard = (JButton) e.getSource();
-        flipCard(clickedCard, true); // Voltea la carta al hacer clic
+        JButton clickedCard = (JButton) e.getSource(); // e,.getSource(); Lee y guarda la fuente que crea el evento actual.
+        flipCard(clickedCard, true);
 
         if (firstCard == null) {
             firstCard = clickedCard;
@@ -71,7 +71,7 @@ public class GamePanel extends JPanel {
             javax.swing.Timer t = new Timer(1000, ev -> {
                 checkMatch(mechanics);
                 isProcessing = false;
-                ((Timer) ev.getSource()).stop(); // Detén el timer después de llamar a checkMatch
+                ((Timer) ev.getSource()).stop(); // Detén el timer después de llamar a checkMatch.
             });
             t.setRepeats(false);
             t.start();
@@ -82,7 +82,7 @@ public class GamePanel extends JPanel {
         try {
             ImageIcon icon = showFront
         ? (ImageIcon) card.getClientProperty("frontIcon")
-        : ImageLoader.loadIcon("Reverso.png", 100, 140);
+        : ImageLoader.loadIcon("Reverso.png", 100, 145);
     card.setIcon(icon);
         } catch (GameInitializationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());

@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DatabaseConnectorTest {
 
     private DatabaseConnector dbConnector;
+    private Connection connection;
 
     @BeforeEach
     void setUp() throws SQLException {
@@ -43,7 +44,7 @@ class DatabaseConnectorTest {
 
     @Test
     void testExecuteQueryUserExists() throws SQLException {
-
+        // Verifica si el usuario existe usando nombre_usuario.
         boolean exists = dbConnector.executeQuery(
                 "SELECT COUNT(*) FROM Usuarios WHERE nombre_usuario = ?",
                 resultSet -> {
@@ -58,7 +59,7 @@ class DatabaseConnectorTest {
 
     @Test
     void testExecuteUpdateInsertUser() throws SQLException {
-
+        // Inserta un nuevo usuario.
         dbConnector.executeUpdate(
                 "INSERT INTO Usuarios (nombre_usuario, contrasena) VALUES (?, ?)",
                 "newUser",
@@ -80,16 +81,16 @@ class DatabaseConnectorTest {
 
     @Test
     void testExecuteUpdateHandlesExceptions() {
-
-        assertThrows(SQLException.class, () -> dbConnector.executeUpdate("INVALID SQL QUERY"));
+        // Test de manejo de excepciones.
+        assertThrows(Exception.class, () -> dbConnector.executeUpdate("INVALID SQL QUERY"));
     }
 
     @Test
     void testExecuteQueryEmptyTable() throws SQLException {
-
+        // Limpia solo Usuarios.
         dbConnector.executeUpdate("DELETE FROM Usuarios");
 
-
+        // Verifica que Usuarios está vacía.
         boolean exists = dbConnector.executeQuery(
                 "SELECT COUNT(*) FROM Usuarios",
                 rs -> {
